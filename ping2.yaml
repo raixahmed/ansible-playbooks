@@ -1,0 +1,9 @@
+---
+- name: ICMP ping inventory hosts
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Ping all inventory hosts with ICMP
+      ansible.netcommon.icmp_ping:
+        dest: "{{ item }}"
+      loop: "{{ groups['all'] }}"
