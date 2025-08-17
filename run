@@ -1,0 +1,7 @@
+---
+- name: Test SSH connectivity
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run simple command over SSH
+      ansible.builtin.command: whoami
