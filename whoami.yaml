@@ -1,0 +1,13 @@
+---
+- name: Test SSH connectivity
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run whoami and print result
+      ansible.builtin.command: whoami
+      register: result
+      changed_when: false
+
+    - debug:
+        msg: "{{ result.stdout }}"
+
